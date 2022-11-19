@@ -11,6 +11,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const {colors} = useAppTheme();
+
   return (
     <View style={styles.centeredView}>
       <Modal
