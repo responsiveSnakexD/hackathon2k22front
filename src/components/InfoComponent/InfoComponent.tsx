@@ -28,6 +28,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
       }
       button={<Entypo name="info" size={24} color="white" />}
       backgroundColor={colors.accent}
+      isFullScreen
     />
   );
 };

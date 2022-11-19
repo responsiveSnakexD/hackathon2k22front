@@ -1,35 +1,38 @@
 import globalStyles from '@app/globalStyles';
 import {useAppTheme} from '@app/hooks';
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {TextIconButtonProps} from './type';
 
 export const TextIconButton: React.FC<TextIconButtonProps> = ({
   text,
   icon,
-  onPress,
+  version = 'primary',
 }) => {
   const {colors} = useAppTheme();
+  const backgroundColor =
+    version === 'primary'
+      ? colors.primary
+      : version === 'secondary'
+      ? colors.secondary
+      : colors.accent;
+  const textColor =
+    version === 'primary'
+      ? colors.onPrimary
+      : version === 'secondary'
+      ? colors.onSecondary
+      : colors.onAccent;
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View
-        style={[
-          globalStyles.button,
-          styles.container,
-          {backgroundColor: colors.secondary},
-        ]}>
-        <Text style={{color: colors.onSecondary}}>{text}</Text>
-        {icon}
-      </View>
-    </TouchableOpacity>
+    <View style={[globalStyles.button, styles.container, {backgroundColor}]}>
+      <Text style={{color: textColor}}>{text}</Text>
+      {icon}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // center the text and icon
     justifyContent: 'center',
     alignItems: 'center',
   },

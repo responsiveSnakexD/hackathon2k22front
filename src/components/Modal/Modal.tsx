@@ -9,6 +9,7 @@ export const Modal: React.FC<ModalProps> = ({
   button,
   content,
   backgroundColor,
+  isFullScreen,
 }) => {
   const [visible, setVisible] = React.useState(false);
   const {colors} = useAppTheme();
@@ -24,6 +25,7 @@ export const Modal: React.FC<ModalProps> = ({
             style={[
               styles.modalView,
               {backgroundColor: backgroundColor ?? colors.primary},
+              isFullScreen && styles.fullScreen,
             ]}>
             <Pressable
               style={[globalStyles.button, styles.buttonClose]}
@@ -47,15 +49,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fullScreen: {
+    width: '90%',
+    height: '90%',
+  },
   content: {},
   buttonClose: {
     position: 'absolute',
     top: 0,
     right: 0,
+    margin: 5,
   },
   modalView: {
-    width: '90%',
-    height: '90%',
     margin: 20,
     padding: 35,
     borderRadius: 20,

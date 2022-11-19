@@ -1,5 +1,6 @@
 import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
 import {TextIconButton} from '@app/components/buttons/TextIconButton';
+import {Modal} from '@app/components/Modal';
 import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import React from 'react';
@@ -33,14 +34,20 @@ const MainTask: React.FC = () => {
       <Title style={[{color: colors.onBackground}]}>{title}</Title>
       <BackHomeButton />
       <Text style={[styles.text, {color: colors.onBackground}]}>
-        <TextIconButton
-          text="description"
-          icon={
-            <Entypo name="open-book" size={24} color={colors.onBackground} />
+        <Modal
+          button={
+            <TextIconButton
+              text="description"
+              icon={
+                <Entypo
+                  name="open-book"
+                  size={24}
+                  color={colors.onBackground}
+                />
+              }
+            />
           }
-          onPress={() => {
-            console.log('dupa');
-          }}
+          content={<Text>{description}</Text>}
         />
       </Text>
     </View>
