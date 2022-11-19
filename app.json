@@ -2,7 +2,9 @@
   "expo": {
     "name": "hackathon",
     "slug": "hackathon",
+    "scheme": "hackathon",
     "version": "1.0.0",
+    "owner": "responsivesnake",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,16 +20,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.responsive.snake"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.responsive.snake"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4568a282-9711-4dc5-a056-2a8d58f950a4"
+      }
     }
   }
 }
