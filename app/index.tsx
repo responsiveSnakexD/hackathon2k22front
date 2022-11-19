@@ -1,10 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
+import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
+import {DailyTaskButton} from '@app/components/buttons/DailyTaskButton';
 import useMachines from '@app/hooks/useMachines';
+import {Task} from '@app/types/Task';
 import {useSelector} from '@xstate/react';
 import {Link} from 'expo-router';
 import {StatusBar} from 'expo-status-bar';
+
 import {InfoComponent} from '../src/components/InfoComponent/InfoComponent';
 import {useAppTheme} from '../src/hooks';
 
@@ -26,6 +30,7 @@ const App: React.FC = () => {
         campaignName="Campaign"
         campaignDescription={campaignDescription}
       />
+      <ButtonsScrollable />
       <Link href="/login">Go to login</Link>
       {logged ? <Text>logged</Text> : null}
       <StatusBar style="auto" />
