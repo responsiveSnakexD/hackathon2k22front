@@ -5,6 +5,7 @@ import useMachines from '@app/hooks/useMachines';
 import {useSelector} from '@xstate/react';
 import {Link} from 'expo-router';
 import {StatusBar} from 'expo-status-bar';
+import {MainTaskButton} from '@app/components/buttons/MainTaskButton';
 import {InfoComponent} from '../src/components/InfoComponent/InfoComponent';
 import {useAppTheme} from '../src/hooks';
 
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         campaignDescription={campaignDescription}
       />
       <Link href="/login">Go to login</Link>
+      <MainTaskButton />
       {logged ? <Text>logged</Text> : null}
       <StatusBar style="auto" />
     </View>

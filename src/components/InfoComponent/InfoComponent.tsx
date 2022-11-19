@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import {Modal, StyleSheet, Pressable, View, ScrollView} from 'react-native';
 import {Entypo} from '@expo/vector-icons';
 import {Text, Title} from 'react-native-paper';
+import globalStyles from '@app/globalStyles';
 import {useAppTheme} from '../../hooks';
 import {InfoComponentProps} from './type';
 
@@ -22,7 +23,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
         <View style={styles.centeredView}>
           <View style={[styles.modalView, {backgroundColor: colors.primary}]}>
             <Pressable
-              style={[styles.button, styles.buttonClose]}
+              style={[globalStyles.button, styles.buttonClose]}
               onPress={() => setModalVisible(false)}>
               <Entypo name="cross" size={24} color={colors.secondary} />
             </Pressable>
@@ -40,7 +41,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
         </View>
       </Modal>
       <Pressable
-        style={[styles.button, {backgroundColor: colors.accent}]}
+        style={[globalStyles.button, {backgroundColor: colors.accent}]}
         onPress={() => setModalVisible(true)}>
         <Entypo name="info" size={24} color="white" />
       </Pressable>
@@ -70,12 +71,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    margin: 10,
-    elevation: 2,
   },
   buttonClose: {
     elevation: 0,
