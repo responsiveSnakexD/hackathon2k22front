@@ -2,11 +2,11 @@ import React from 'react';
 
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
 import {InfoComponent} from '../src/components/InfoComponent/InfoComponent';
+import {useAppTheme} from '../src/hooks';
 
 const App: React.FC = () => {
-  const {colors} = useTheme();
+  const {colors} = useAppTheme();
 
   const newParagraph = '\n\n\t';
 
