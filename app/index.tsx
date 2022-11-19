@@ -1,12 +1,17 @@
 import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
+import useMachines from '@app/hooks/useMachines';
+import {useSelector} from '@xstate/react';
+import {Link} from 'expo-router';
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, View} from 'react-native';
 import {InfoComponent} from '../src/components/InfoComponent/InfoComponent';
 import {useAppTheme} from '../src/hooks';
 
 const App: React.FC = () => {
   const {colors} = useAppTheme();
+  const {auth} = useMachines();
+  const logged = useSelector(auth, (state) => state.matches('authenticated'));
 
   const newParagraph = '\n\n\t';
 
@@ -21,6 +26,8 @@ const App: React.FC = () => {
         campaignName="Campaign"
         campaignDescription={campaignDescription}
       />
+      <Link href="/login">Go to login</Link>
+      {logged ? <Text>logged</Text> : null}
       <StatusBar style="auto" />
     </View>
   );

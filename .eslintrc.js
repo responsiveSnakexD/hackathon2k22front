@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   root: true,
   extends: [
@@ -85,6 +87,16 @@ module.exports = {
     'import/core-modules': ['@env'],
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['./src/*'],
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        project: [path.resolve(__dirname, './tsconfig.json')],
+      },
     },
   },
 };

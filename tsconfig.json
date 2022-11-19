@@ -1,6 +1,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es2015",
     "module": "es2015",
     "lib": ["ES6", "DOM", "ES2018"],
@@ -16,6 +17,9 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "types": ["react", "react-native"],
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "paths": {
+      "@app/*": ["./src/*"]
+    }
   }
 }
