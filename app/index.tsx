@@ -2,9 +2,12 @@ import React from 'react';
 
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import {InfoComponent} from '../src/components/InfoComponent';
 
 const App: React.FC = () => {
+  const {colors} = useTheme();
+
   return (
     <View style={styles.container}>
       <InfoComponent />
@@ -12,13 +15,15 @@ const App: React.FC = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    fontSize: 20,
   },
 });
 
