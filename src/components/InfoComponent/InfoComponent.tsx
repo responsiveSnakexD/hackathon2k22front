@@ -24,7 +24,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(false)}>
-              <Entypo name="cross" size={24} color={colors.secondary} />
+              <Entypo name="cross" size={24} color={colors.onPrimary} />
             </Pressable>
             <View style={styles.modalText}>
               <Title style={[styles.title, {color: colors.onPrimary}]}>

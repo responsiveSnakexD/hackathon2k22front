@@ -6,12 +6,12 @@ export const darkTheme: Theme = {
   ...commonTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#F7DD72',
-    onPrimary: '#0B3954',
+    primary: '#5F444C',
+    onPrimary: '#E7E1DA',
     secondary: '#5AB1BB',
-    onSecondary: '#0B3954',
-    background: '#1E152A',
-    onBackground: '#F7DD72',
-    accent: '#A5C882',
+    onSecondary: '#E7E1DA',
+    background: '#17132A',
+    onBackground: '#D7CDC1',
+    accent: '#00798C',
   },
 };
