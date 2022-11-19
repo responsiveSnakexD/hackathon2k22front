@@ -24,7 +24,7 @@ export const TextIconButton: React.FC<TextIconButtonProps> = ({
       : colors.onAccent;
   return (
     <View style={[globalStyles.button, styles.container, {backgroundColor}]}>
-      <Text style={{color: textColor}}>{text}</Text>
+      {text && <Text style={{color: textColor}}>{text}</Text>}
       {icon}
     </View>
   );
