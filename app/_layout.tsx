@@ -1,12 +1,19 @@
-import {Stack} from 'expo-router';
-import React, {FC} from 'react';
-import ThemeProvider from '../src/providers/ThemeProvider';
+import React from 'react';
 
-const Layout: FC = () => {
+import MachinesProvider from '@app/providers/MachinesProvider';
+import StoresProvider from '@app/providers/StoreProvider';
+import ThemeProvider from '@app/providers/ThemeProvider';
+import {Stack} from 'expo-router';
+
+const Layout: React.FC = () => {
   return (
-    <ThemeProvider>
-      <Stack />
-    </ThemeProvider>
+    <StoresProvider>
+      <MachinesProvider>
+        <ThemeProvider>
+          <Stack />
+        </ThemeProvider>
+      </MachinesProvider>
+    </StoresProvider>
   );
 };
 
