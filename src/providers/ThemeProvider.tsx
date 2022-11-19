@@ -7,9 +7,10 @@ const ThemeProvider: FC<{children: ReactNode}> = ({children}) => {
   const [scheme, setScheme] = React.useState(useColorScheme());
   console.log(scheme);
   useEffect(() => {
-    Appearance.addChangeListener(({colorScheme}) => {
+    const event = Appearance.addChangeListener(({colorScheme}) => {
       setScheme(colorScheme);
     });
+    return () => event.remove();
   });
   return (
     <PaperProvider theme={scheme === 'dark' ? darkTheme : lightTheme}>
