@@ -17,7 +17,7 @@ export const InfoComponent: FC<InfoComponentProps> = ({
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(!modalVisible)}>
+        onRequestClose={() => setModalVisible((state) => !state)}>
         <View style={styles.centeredView}>
           <View style={[styles.modalView, {backgroundColor: colors.primary}]}>
             <Pressable
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     margin: 10,
     elevation: 2,
   },
-  buttonInfo: {},
   buttonClose: {
     elevation: 0,
     position: 'absolute',
