@@ -8,9 +8,9 @@ import {View} from 'react-native';
 export const MainTaskButton: React.FC = () => {
   const {colors} = useAppTheme();
   return (
-    <View style={[globalStyles.button, {backgroundColor: colors.secondary}]}>
+    <View style={[globalStyles.button, {backgroundColor: colors.primary}]}>
       <Link href="/mainTask">
-        <Entypo name="address" size={24} color={colors.onSecondary} />
+        <Entypo name="address" size={24} color={colors.onPrimary} />
       </Link>
     </View>
   );
