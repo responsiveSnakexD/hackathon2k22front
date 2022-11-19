@@ -14,12 +14,12 @@ const tasks: Task[] = [
   {
     id: 2,
     isDone: false,
-    isMain: false,
+    isMain: true,
   },
   {
     id: 3,
     isDone: false,
-    isMain: false,
+    isMain: true,
   },
   {
     id: 4,
