@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  TouchableNativeFeedback,
-} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
 import {path} from 'xstate/lib/utils';

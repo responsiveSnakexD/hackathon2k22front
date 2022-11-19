@@ -1,7 +1,9 @@
 import React, {FC, useState} from 'react';
 import {Modal, StyleSheet, Pressable, View, ScrollView} from 'react-native';
+
 import {Entypo} from '@expo/vector-icons';
 import {Text, Title} from 'react-native-paper';
+
 import {useAppTheme} from '../../hooks';
 import {InfoComponentProps} from './type';
 
@@ -74,7 +76,6 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
-    margin: 10,
     elevation: 2,
   },
   buttonClose: {
