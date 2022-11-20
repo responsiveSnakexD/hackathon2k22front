@@ -1,7 +1,6 @@
 import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import globalStyles from '@app/globalStyles';
 import {useAppTheme} from '@app/hooks';
 
 export const IconContainer: React.FC<{

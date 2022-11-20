@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
     <StoresProvider>
       <MachinesProvider>
         <ThemeProvider>
-          <Stack />
+          <Stack screenOptions={{headerShown: false}} />
         </ThemeProvider>
       </MachinesProvider>
     </StoresProvider>

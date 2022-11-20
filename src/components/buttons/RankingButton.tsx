@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
@@ -8,10 +8,13 @@ type RankingButtonTypes = {
   onPress: () => void;
 };
 
-export const RankingButton = ({exp, onPress}: RankingButtonTypes) => {
+export const RankingButton = ({
+  exp,
+  onPress,
+}: RankingButtonTypes): ReactElement => {
   const {colors} = useAppTheme();
   return (
-    <View style={{flex: 1, alignItems: 'center'}}>
+    <View style={styles.container}>
       <TouchableOpacity
         onPress={onPress}
         style={[
@@ -27,6 +30,10 @@ export const RankingButton = ({exp, onPress}: RankingButtonTypes) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
   borders: {
     borderRadius: 50,
     width: 50,

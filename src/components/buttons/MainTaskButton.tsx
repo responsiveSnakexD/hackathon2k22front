@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-import globalStyles from '@app/globalStyles';
 import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Link} from 'expo-router';
