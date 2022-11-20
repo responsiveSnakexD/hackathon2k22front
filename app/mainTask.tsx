@@ -8,6 +8,7 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
+import Fish from '../assets/nemo.svg';
 import Whale from '../assets/whale.svg';
 
 const title = 'Develop curiosity';
@@ -24,6 +25,7 @@ Try to see as many positive aspects as you can.
 `;
 const MainTask: React.FC = () => {
   const {colors} = useAppTheme();
+  const isMain = true;
 
   type ModalItem = {
     name: string;
@@ -77,7 +79,11 @@ const MainTask: React.FC = () => {
           content={<Text style={styles.text}>{goalModal.text}</Text>}
         />
       </View>
-      <Whale width="300" height="400" />
+      {isMain ? (
+        <Fish width="250" height="400" />
+      ) : (
+        <Whale width="300" height="400" />
+      )}
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
