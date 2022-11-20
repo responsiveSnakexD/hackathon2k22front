@@ -35,7 +35,7 @@ const Register: React.FC<PageProps> = ({navigation}) => {
         navigation.navigate('/');
       } else {
         auth.send('LOGOUT');
-        setError('złe dane!');
+        setError('incorrect data');
       }
     }
   };

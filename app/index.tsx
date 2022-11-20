@@ -4,6 +4,7 @@ import {StatusBar, Platform, StyleSheet} from 'react-native';
 import {Header} from '@app/components/Header/Header';
 import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
 import {PageProps} from '@app/types/pageprops';
+import {Link} from 'expo-router';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -16,6 +17,9 @@ const App: React.FC<PageProps> = ({navigation: {navigate}}) => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <Header exp={125} navigate={navigate} />
+      <Link style={{color: 'white'}} href="/login">
+        Login
+      </Link>
 
       <ButtonsScrollable />
       <ExpoStatusBar style="auto" />
