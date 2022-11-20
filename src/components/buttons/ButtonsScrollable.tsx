@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
@@ -35,7 +35,7 @@ export const ButtonsScrollable: React.FC = () => {
     <ScrollView horizontal>
       <View style={styles.container}>
         {tasks.map((task) => (
-          <>
+          <Fragment key={task.id}>
             <DailyTaskButton
               title={task.id}
               onPress={() => console.log('clicked')}
@@ -48,7 +48,7 @@ export const ButtonsScrollable: React.FC = () => {
                 styles.line,
               ]}
             />
-          </>
+          </Fragment>
         ))}
       </View>
     </ScrollView>

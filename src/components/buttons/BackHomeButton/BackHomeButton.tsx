@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     padding: 10,
-    margin: 30,
+    marginHorizontal: 5,
     position: 'absolute',
     top: 0,
     right: 0,
