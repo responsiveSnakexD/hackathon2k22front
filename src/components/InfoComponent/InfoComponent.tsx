@@ -7,6 +7,7 @@ import {Text, Title} from 'react-native-paper';
 import {useAppTheme} from '../../hooks';
 import {Modal} from '../Modal';
 import {TextIconButton} from '../buttons/TextIconButton';
+import {IconContainer} from '../containers/IconContainer';
 import {InfoComponentProps} from './type';
 
 export const InfoComponent: React.FC<InfoComponentProps> = ({
@@ -30,10 +31,9 @@ export const InfoComponent: React.FC<InfoComponentProps> = ({
         </>
       }
       button={
-        <TextIconButton
-          icon={<Entypo name="info" size={24} color="white" />}
-          version="accent"
-        />
+        <IconContainer version="accent">
+          <Entypo name="info" size={24} color="white" />
+        </IconContainer>
       }
       backgroundColor={colors.accent}
       isFullScreen

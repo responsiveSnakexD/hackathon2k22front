@@ -33,7 +33,7 @@ const App: React.FC = () => {
       <Header exp={125} />
       <ButtonsScrollable />
       <Link href="/login">Go to login</Link>
-      <MainTaskButton />
+
       {logged ? <Text>logged</Text> : null}
       <ExpoStatusBar style="auto" />
     </SafeAreaView>

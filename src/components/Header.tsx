@@ -4,6 +4,7 @@ import {View, StyleSheet} from 'react-native';
 import {useAppTheme} from '@app/hooks';
 
 import {InfoComponent} from './InfoComponent/InfoComponent';
+import {MainTaskButton} from './buttons/MainTaskButton';
 import {RankingButton} from './buttons/RankingButton';
 
 type HeaderTypes = {
@@ -23,10 +24,13 @@ export const Header = ({exp}: HeaderTypes) => {
     <>
       <View style={styles.container}>
         <RankingButton exp={exp} onPress={() => console.log('exp')} />
-        <InfoComponent
-          campaignName="Campaign"
-          campaignDescription={campaignDescription}
-        />
+        <View style={styles.innerShelf}>
+          <InfoComponent
+            campaignName="Campaign"
+            campaignDescription={campaignDescription}
+          />
+          <MainTaskButton />
+        </View>
       </View>
     </>
   );
@@ -35,9 +39,16 @@ export const Header = ({exp}: HeaderTypes) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flex: 0.3,
+    flex: 0.5,
     flexDirection: 'row',
     alignItems: 'baseline',
     justifyContent: 'space-around',
+  },
+  innerShelf: {
+    display: 'flex',
+    flex: 0.5,
+    flexDirection: 'column',
+    alignItems: 'baseline',
+    justifyContent: 'center',
   },
 });
