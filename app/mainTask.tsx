@@ -77,7 +77,7 @@ const MainTask: React.FC = () => {
           content={<Text style={styles.text}>{goalModal.text}</Text>}
         />
       </View>
-      <Whale width="200" height="400" />
+      <Whale width="300" height="400" />
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
