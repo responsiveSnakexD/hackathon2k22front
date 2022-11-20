@@ -13,7 +13,7 @@ import {RegisterFieldValues} from './types';
 
 const Register: React.FC<PageProps> = ({navigation}) => {
   const {auth} = useMachines();
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const loading = useSelector(auth, (state) => state.matches('loading'));
   const {control, handleSubmit, getValues} = useForm<RegisterFieldValues>({
     defaultValues: {email: '', password: '', repeatPassword: ''},
@@ -57,7 +57,7 @@ const Register: React.FC<PageProps> = ({navigation}) => {
             : 'hasła nie są identyczne';
         }}
       />
-      {error ? <Text>{error}</Text> : null}
+      {error && <Text>{error}</Text>}
       <Pressable onPress={handleSubmit(onValidData)}>
         <Text>zarejestruj</Text>
       </Pressable>

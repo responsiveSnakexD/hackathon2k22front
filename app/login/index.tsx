@@ -13,7 +13,7 @@ import {LoginFieldValues} from './types';
 
 const Login: React.FC<PageProps> = ({navigation}) => {
   const {auth} = useMachines();
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const loading = useSelector(auth, (state) => state.matches('loading'));
   const {control, handleSubmit} = useForm<LoginFieldValues>({
     defaultValues: {email: '', password: ''},
@@ -47,7 +47,7 @@ const Login: React.FC<PageProps> = ({navigation}) => {
         name="password"
         password
       />
-      {error ? <Text>{error}</Text> : null}
+      {error && <Text>{error}</Text>}
       <Pressable onPress={handleSubmit(onValidData)}>
         <Text>zaloguj</Text>
       </Pressable>
