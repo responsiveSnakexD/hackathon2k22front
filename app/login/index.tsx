@@ -4,6 +4,7 @@ import {Text, StyleSheet, View} from 'react-native';
 import ControlledInput from '@app/components/ControlledInput';
 import SendButton from '@app/components/buttons/SendButton';
 import {useAppTheme} from '@app/hooks';
+import {useKeyboardState} from '@app/hooks/useKeyboardState';
 import useMachines from '@app/hooks/useMachines';
 import {login} from '@app/stores/Auth/utils';
 import {PageProps} from '@app/types/pageprops';
@@ -16,6 +17,7 @@ import Birds from '../../assets/Birds.svg';
 import {LoginFieldValues} from './types';
 
 const Login: React.FC<PageProps> = ({navigation}) => {
+  const isKeyboardVisible = useKeyboardState();
   const {auth} = useMachines();
   const {colors} = useAppTheme();
   const [error, setError] = useState<string | null>(null);
