@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
@@ -41,11 +41,12 @@ export const ButtonsScrollable: React.FC = () => {
               onPress={() => console.log('clicked')}
             />
             <View
-              style={{
-                height: 1,
-                backgroundColor: colors.onPath,
-                width: 60,
-              }}
+              style={[
+                {
+                  backgroundColor: colors.onPath,
+                },
+                styles.line,
+              ]}
             />
           </>
         ))}
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
   container: {flexDirection: 'row', alignItems: 'center'},
   line: {
     height: 1,
-    backgroundColor: 'white',
     width: 60,
   },
 });

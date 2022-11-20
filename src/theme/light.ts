@@ -17,5 +17,6 @@ export const lightTheme = {
     onBackground: '#181527',
     accent: '#0F7173',
     onAccent: '#E7E1DA',
+    error: '#C42B2B',
   },
 };

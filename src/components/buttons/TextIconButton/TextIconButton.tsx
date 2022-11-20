@@ -1,7 +1,9 @@
-import globalStyles from '@app/globalStyles';
-import {useAppTheme} from '@app/hooks';
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+
+import globalStyles from '@app/globalStyles';
+import {useAppTheme} from '@app/hooks';
+
 import {TextIconButtonProps} from './type';
 
 export const TextIconButton: React.FC<TextIconButtonProps> = ({
