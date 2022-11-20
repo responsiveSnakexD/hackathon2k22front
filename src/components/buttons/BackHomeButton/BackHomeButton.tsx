@@ -21,8 +21,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     marginHorizontal: 5,
-    position: 'absolute',
-    top: 0,
-    right: 0,
   },
 });

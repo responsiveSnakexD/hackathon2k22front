@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import API from '@app/api';
 import {TaskData} from '@app/api/types';
+import ImagePicker from '@app/components/ImagePicker';
 import {Modal} from '@app/components/Modal';
 import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
 import {TextIconButton} from '@app/components/buttons/TextIconButton';
@@ -53,8 +54,12 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       {taskData ? (
         <>
-          <Title style={[{color: colors.onBackground}]}>{taskData.title}</Title>
-          <BackHomeButton />
+          <View style={{}}>
+            <BackHomeButton />
+            <Title style={[{color: colors.onBackground}]}>
+              {taskData.title}
+            </Title>
+          </View>
           <View style={styles.buttonList}>
             {[descriptionModal, goalModal, documentationModal].map((item) => (
               <Modal
@@ -68,6 +73,9 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
                 content={<Text>{taskData[item.name]}</Text>}
               />
             ))}
+          </View>
+          <View style={styles.pickerContainer}>
+            <ImagePicker />
           </View>
         </>
       ) : (
@@ -83,11 +91,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  pickerContainer: {
+    flex: 1,
+  },
   text: {
     fontSize: 14,
   },
   buttonList: {
+    flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
   },
