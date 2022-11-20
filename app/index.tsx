@@ -7,7 +7,6 @@ import {Link} from 'expo-router';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import Giraffe from '../assets/Girafe.svg';
 import {useAppTheme} from '../src/hooks';
 
 const App: React.FC = () => {
@@ -17,9 +16,6 @@ const App: React.FC = () => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <Header exp={125} />
-
-      <Giraffe width="100" height="100" />
-
       <ButtonsScrollable />
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
@@ -30,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   text: {
     fontSize: 20,
