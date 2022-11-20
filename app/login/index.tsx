@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     width: '100%',
   },
   registerContainer: {
