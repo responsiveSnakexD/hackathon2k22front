@@ -18,5 +18,6 @@ export const darkTheme: Theme = {
     onBackground: '#FFE066',
     accent: '#00798C',
     onAccent: '#E7E1DA',
+    error: '#A11A1A',
   },
 };

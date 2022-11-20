@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
+import {useAppTheme} from '@app/hooks';
 import {useController, FieldValues} from 'react-hook-form';
 import {TextInput} from 'react-native-paper';
 
@@ -17,18 +18,38 @@ const ControlledInput = <T extends FieldValues>({
     field: {onChange, value},
     fieldState: {error},
   } = useController({control, name, rules: {validate}});
+  const {colors} = useAppTheme();
 
   return (
-    <View>
-      <Text>{label}</Text>
+    <View style={styles.inputContainer}>
+      <Text style={[styles.inputLabel, {color: colors.text}]}>
+        {label.toLocaleUpperCase()}
+      </Text>
       <TextInput
         onChangeText={onChange}
         value={value}
         secureTextEntry={password}
+        style={[styles.input, {backgroundColor: colors.surface}]}
       />
-      {error ? <Text>{error.message}</Text> : null}
+      {error ? (
+        <Text style={{color: colors.error}}>{error.message}</Text>
+      ) : null}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  inputContainer: {
+    marginVertical: 15,
+    width: '90%',
+  },
+  input: {
+    height: 50,
+    borderRadius: 10,
+  },
+  inputLabel: {
+    marginBottom: 5,
+  },
+});
 
 export default ControlledInput;

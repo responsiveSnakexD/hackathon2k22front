@@ -11,6 +11,7 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
+    "@expo/metro-config": "^0.5.1",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@xstate/react": "^3.0.1",
@@ -29,6 +30,8 @@
     "react-native-reanimated": "2.12.0",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
+    "react-native-svg": "13.4.0",
+    "react-native-svg-transformer": "^1.0.0",
     "react-native-web": "~0.18.9",
     "xstate": "^4.34.0"
   },

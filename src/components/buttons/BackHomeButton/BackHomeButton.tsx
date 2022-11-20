@@ -1,8 +1,9 @@
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+
 import {useAppTheme} from '@app/hooks';
 import {AntDesign} from '@expo/vector-icons';
 import {Link} from 'expo-router';
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
 
 export const BackHomeButton: React.FC = () => {
   const {colors} = useAppTheme();

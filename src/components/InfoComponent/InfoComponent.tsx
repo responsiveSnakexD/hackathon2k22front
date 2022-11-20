@@ -1,12 +1,11 @@
-import React, {FC, useState} from 'react';
-import {StyleSheet, Pressable, View, ScrollView} from 'react-native';
+import React from 'react';
+import {StyleSheet, ScrollView} from 'react-native';
 
 import {Entypo} from '@expo/vector-icons';
 import {Text, Title} from 'react-native-paper';
 
 import {useAppTheme} from '../../hooks';
 import {Modal} from '../Modal';
-import {TextIconButton} from '../buttons/TextIconButton';
 import {IconContainer} from '../containers/IconContainer';
 import {InfoComponentProps} from './type';
 
