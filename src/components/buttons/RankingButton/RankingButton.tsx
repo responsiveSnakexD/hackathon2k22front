@@ -1,22 +1,19 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
 
-type RankingButtonTypes = {
-  exp: number;
-  onPress: () => void;
-};
+import {RankingButtonProps} from './type';
 
-export const RankingButton = ({
+export const RankingButton: React.FC<RankingButtonProps> = ({
   exp,
-  onPress,
-}: RankingButtonTypes): ReactElement => {
+  navigate,
+}) => {
   const {colors} = useAppTheme();
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={onPress}
+        onPress={() => navigate('ranking')}
         style={[
           {
             borderColor: colors.onBackground,

@@ -18,5 +18,8 @@ export const lightTheme = {
     accent: '#0F7173',
     onAccent: '#E7E1DA',
     error: '#C42B2B',
+    mainBorder: '#69DDFF',
+    mainBg: '#006494',
+    compleatedText: '#FAD5D5',
   },
 };

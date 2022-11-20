@@ -7,12 +7,16 @@ type DailyTaskButtonTypes = {
   title: number;
   size?: number;
   onPress: () => void;
+  isDone: boolean;
+  isMain: boolean;
 };
 
 export const DailyTaskButton = ({
   title,
   size = 125,
   onPress,
+  isDone,
+  isMain,
 }: DailyTaskButtonTypes): ReactElement => {
   const {colors} = useAppTheme();
   return (
@@ -23,12 +27,28 @@ export const DailyTaskButton = ({
           borderRadius: size / 2,
           width: size,
           height: size / 2,
-          borderColor: colors.path,
-          backgroundColor: colors.pathBg,
+          borderColor: isMain ? colors.mainBorder : colors.path,
+          backgroundColor: isMain
+            ? colors.mainBg
+            : isDone
+            ? colors.path
+            : colors.pathBg,
         },
         styles.borders,
       ]}>
-      <Text style={[{color: colors.path, fontSize: size / 3}]}>{title}</Text>
+      <Text
+        style={[
+          {
+            color: isMain
+              ? colors.mainBorder
+              : isDone
+              ? colors.compleatedText
+              : colors.path,
+            fontSize: size / 3,
+          },
+        ]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };
