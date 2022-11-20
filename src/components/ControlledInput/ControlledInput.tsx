@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     marginBottom: 5,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 

@@ -44,17 +44,24 @@ const Login: React.FC<PageProps> = ({navigation}) => {
       <View style={styles.formContainer}>
         <ControlledInput label="email" control={control} name="email" />
         <ControlledInput
-          label="hasło"
+          label="password"
           control={control}
           name="password"
           password
         />
         {error && <Text style={{color: colors.error}}>{error}</Text>}
         <SendButton onPress={handleSubmit(onValidData)} disabled={loading}>
-          zaloguj
+          <Text style={{color: colors.onSecondary}}>Log In</Text>
         </SendButton>
       </View>
-      <Link href="/register">Zarejestruj się!</Link>
+      <View
+        style={[styles.registerContainer, {borderColor: colors.onBackground}]}>
+        <Link href="/register">
+          <Text style={[styles.register, {color: colors.onBackground}]}>
+            Register
+          </Text>
+        </Link>
+      </View>
     </SafeAreaView>
   );
 };
@@ -64,13 +71,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
+    paddingBottom: 30,
   },
   formContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+  },
+  registerContainer: {
+    borderWidth: 2,
+    borderColor: 'black',
+    padding: 10,
+    borderRadius: 20,
+  },
+  register: {
+    fontSize: 18,
   },
 });
 

@@ -17,7 +17,7 @@ const SendButton: React.FC<SendButtonProps> = ({
     <Button
       disabled={disabled}
       onPress={!disabled ? onPress : undefined}
-      style={[styles.buttonStyles, {color: colors.onBackground}]}
+      style={[styles.buttonStyles, {backgroundColor: colors.secondary}]}
       labelStyle={disabled ? {color: colors.disabled} : undefined}>
       {children}
     </Button>
