@@ -39,7 +39,8 @@ const Login: React.FC<PageProps> = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.formContainer}>
         <ControlledInput label="email" control={control} name="email" />
         <ControlledInput
