@@ -5,12 +5,13 @@ export const lightTheme = {
   ...commonTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#A09BE7',
+    primary: '#BABD89',
     onPrimary: '#212738',
     secondary: '#F97068',
     onSecondary: '#212738',
     background: '#FFEAC2',
     onBackground: '#181527',
-    accent: '#BABD89',
+    accent: '#A09BE7',
+    onAccent: '#212738',
   },
 };

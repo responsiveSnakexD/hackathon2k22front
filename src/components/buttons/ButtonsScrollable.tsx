@@ -1,5 +1,5 @@
-import React from 'react';
-import {ScrollView, View} from 'react-native';
+import React, {Fragment} from 'react';
+import {ScrollView, View, StyleSheet} from 'react-native';
 
 import {Task} from '@app/types/Task';
 
@@ -28,26 +28,29 @@ const tasks: Task[] = [
   },
 ];
 
-export const ButtonsScrollable = () => {
+export const ButtonsScrollable: React.FC = () => {
   return (
     <ScrollView horizontal>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.container}>
         {tasks.map((task) => (
-          <>
+          <Fragment key={task.id}>
             <DailyTaskButton
               title={task.id}
               onPress={() => console.log('clicked')}
             />
-            <View
-              style={{
-                height: 1,
-                backgroundColor: 'white',
-                width: 60,
-              }}
-            />
-          </>
+            <View style={styles.line} />
+          </Fragment>
         ))}
       </View>
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {flexDirection: 'row', alignItems: 'center'},
+  line: {
+    height: 1,
+    backgroundColor: 'white',
+    width: 60,
+  },
+});
