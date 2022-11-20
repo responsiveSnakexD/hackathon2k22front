@@ -1,8 +1,9 @@
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+
 import {useAppTheme} from '@app/hooks';
 import {AntDesign} from '@expo/vector-icons';
 import {Link} from 'expo-router';
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
 
 export const BackHomeButton: React.FC = () => {
   const {colors} = useAppTheme();
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     padding: 10,
-    margin: 30,
+    marginHorizontal: 5,
     position: 'absolute',
     top: 0,
     right: 0,

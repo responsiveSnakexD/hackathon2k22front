@@ -1,10 +1,11 @@
-import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
-import {TextIconButton} from '@app/components/buttons/TextIconButton';
-import {Modal} from '@app/components/Modal';
-import {useAppTheme} from '@app/hooks';
-import {Entypo} from '@expo/vector-icons';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+
+import {Modal} from '@app/components/Modal';
+import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
+import {TextIconButton} from '@app/components/buttons/TextIconButton';
+import {useAppTheme} from '@app/hooks';
+import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
 type MainTaskProps = {
@@ -53,19 +54,44 @@ const MainTask: React.FC = () => {
 
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
-      <Title style={[{color: colors.onBackground}]}>{title}</Title>
-      <BackHomeButton />
+      <View style={styles.goal}>
+        <View style={styles.header}>
+          <Title style={[{color: colors.onBackground}]}>{title}</Title>
+          <BackHomeButton />
+        </View>
+
+        <Modal
+          key={goalModal.icon}
+          button={
+            <TextIconButton
+              icon={<Entypo name={goalModal.icon} size={24} color="white" />}
+              text={goalModal.name}
+              version={'secondary'}
+              style={{
+                padding: 10,
+                width: 60,
+                height: 60,
+                borderRadius: 50,
+                alignSelf: 'center',
+              }}
+            />
+          }
+          content={<Text style={styles.text}>{goalModal.text}</Text>}
+        />
+      </View>
       <View style={styles.buttonList}>
-        {[descriptionModal, goalModal, documentationModal].map((item) => (
+        {[descriptionModal, documentationModal].map((item) => (
           <Modal
             key={item.icon}
             button={
               <TextIconButton
                 icon={<Entypo name={item.icon} size={24} color="white" />}
                 text={item.name}
+                version={'secondary'}
+                style={styles.buttons}
               />
             }
-            content={<Text>{item.text}</Text>}
+            content={<Text style={styles.text}>{item.text}</Text>}
           />
         ))}
       </View>
@@ -76,16 +102,35 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+  },
+  header: {
+    width: 300,
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+  },
+  goal: {
+    flex: 0.2,
+    display: 'flex',
+    flexDirection: 'column',
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
   },
   buttonList: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+  },
+  buttons: {
+    padding: 10,
+    width: 150,
+    height: 80,
+    borderRadius: 50,
   },
 });
 
