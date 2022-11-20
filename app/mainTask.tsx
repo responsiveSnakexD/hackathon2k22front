@@ -1,18 +1,12 @@
-import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
-import {TextIconButton} from '@app/components/buttons/TextIconButton';
-import {Modal} from '@app/components/Modal';
-import {useAppTheme} from '@app/hooks';
-import {Entypo} from '@expo/vector-icons';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {Title} from 'react-native-paper';
 
-type MainTaskProps = {
-  title: string;
-  description: string;
-  goal: string;
-  documentation: string;
-};
+import {Modal} from '@app/components/Modal';
+import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
+import {TextIconButton} from '@app/components/buttons/TextIconButton';
+import {useAppTheme} from '@app/hooks';
+import {Entypo} from '@expo/vector-icons';
+import {Title} from 'react-native-paper';
 
 const title = 'Develop curiosity';
 const description =
