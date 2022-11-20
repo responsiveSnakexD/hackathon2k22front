@@ -29,27 +29,46 @@ Try to see as many positive aspects as you can.
 const MainTask: React.FC = () => {
   const {colors} = useAppTheme();
 
+  type ModalItem = {
+    name: string;
+    text: string;
+    icon: React.ComponentProps<typeof Entypo>['name'];
+  };
+
+  const descriptionModal: ModalItem = {
+    name: 'description',
+    text: description,
+    icon: 'open-book',
+  };
+  const goalModal: ModalItem = {
+    name: 'goal',
+    text: goal,
+    icon: 'trophy',
+  };
+  const documentationModal: ModalItem = {
+    name: 'documentation',
+    text: documentation,
+    icon: 'book',
+  };
+
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <Title style={[{color: colors.onBackground}]}>{title}</Title>
       <BackHomeButton />
-      <Text style={[styles.text, {color: colors.onBackground}]}>
-        <Modal
-          button={
-            <TextIconButton
-              text="description"
-              icon={
-                <Entypo
-                  name="open-book"
-                  size={24}
-                  color={colors.onBackground}
-                />
-              }
-            />
-          }
-          content={<Text>{description}</Text>}
-        />
-      </Text>
+      <View style={styles.buttonList}>
+        {[descriptionModal, goalModal, documentationModal].map((item) => (
+          <Modal
+            key={item.icon}
+            button={
+              <TextIconButton
+                icon={<Entypo name={item.icon} size={24} color="white" />}
+                text={item.name}
+              />
+            }
+            content={<Text>{item.text}</Text>}
+          />
+        ))}
+      </View>
     </View>
   );
 };
@@ -62,6 +81,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
+  },
+  buttonList: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
   },
 });
 
