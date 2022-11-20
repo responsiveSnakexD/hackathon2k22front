@@ -1,11 +1,14 @@
-import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import React, {FC, useState} from 'react';
+import {StyleSheet, Pressable, View, ScrollView} from 'react-native';
+
 import {Entypo} from '@expo/vector-icons';
 import {Text, Title} from 'react-native-paper';
+
 import {useAppTheme} from '../../hooks';
-import {InfoComponentProps} from './type';
 import {Modal} from '../Modal';
 import {TextIconButton} from '../buttons/TextIconButton';
+import {IconContainer} from '../containers/IconContainer';
+import {InfoComponentProps} from './type';
 
 export const InfoComponent: React.FC<InfoComponentProps> = ({
   campaignDescription,
@@ -28,10 +31,9 @@ export const InfoComponent: React.FC<InfoComponentProps> = ({
         </>
       }
       button={
-        <TextIconButton
-          icon={<Entypo name="info" size={24} color="white" />}
-          version="accent"
-        />
+        <IconContainer version="accent">
+          <Entypo name="info" size={24} color="white" />
+        </IconContainer>
       }
       backgroundColor={colors.accent}
       isFullScreen
