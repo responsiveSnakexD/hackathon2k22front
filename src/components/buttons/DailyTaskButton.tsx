@@ -27,9 +27,9 @@ export const DailyTaskButton = ({
           borderRadius: size / 2,
           width: size,
           height: size / 2,
-          borderColor: isMain ? '#69DDFF' : colors.path,
+          borderColor: isMain ? colors.mainBorder : colors.path,
           backgroundColor: isMain
-            ? '#006494'
+            ? colors.mainBg
             : isDone
             ? colors.path
             : colors.pathBg,
@@ -39,7 +39,11 @@ export const DailyTaskButton = ({
       <Text
         style={[
           {
-            color: isMain ? '#69DDFF' : isDone ? '#FAD5D5' : colors.path,
+            color: isMain
+              ? colors.mainBorder
+              : isDone
+              ? colors.compleatedText
+              : colors.path,
             fontSize: size / 3,
           },
         ]}>
