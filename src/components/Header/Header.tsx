@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flex: 0.3,
+    flex: 0.15,
     flexDirection: 'row',
     alignItems: 'baseline',
     justifyContent: 'space-around',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   innerShelf: {
     paddingRight: 10,
     display: 'flex',
-    flex: 0.5,
+    flex: 0.4,
     flexDirection: 'column',
     alignItems: 'flex-end',
     justifyContent: 'space-evenly',

@@ -8,7 +8,7 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
-import Giraffe from '../assets/giraffe.svg';
+import Giraffe from '../assets/whale.svg';
 
 const title = 'Develop curiosity';
 const description =
