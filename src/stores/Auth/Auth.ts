@@ -12,6 +12,12 @@ const Auth = createMachine<undefined, AuthEvents, AuthStates>({
         },
       },
     },
+    loading: {
+      on: {
+        LOGGED: 'authenticated',
+        ERROR: 'unauthenticated',
+      },
+    },
     authenticated: {
       on: {
         LOGOUT: {

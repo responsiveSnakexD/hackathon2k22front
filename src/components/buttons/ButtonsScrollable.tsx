@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 
+import {useAppTheme} from '@app/hooks';
 import {Task} from '@app/types/Task';
 
 import {DailyTaskButton} from './DailyTaskButton';
@@ -29,17 +30,25 @@ const tasks: Task[] = [
 ];
 
 export const ButtonsScrollable: React.FC = () => {
+  const {colors} = useAppTheme();
   return (
     <ScrollView horizontal>
       <View style={styles.container}>
         {tasks.map((task) => (
-          <Fragment key={task.id}>
+          <>
             <DailyTaskButton
               title={task.id}
               onPress={() => console.log('clicked')}
             />
-            <View style={styles.line} />
-          </Fragment>
+            <View
+              style={[
+                {
+                  backgroundColor: colors.onPath,
+                },
+                styles.line,
+              ]}
+            />
+          </>
         ))}
       </View>
     </ScrollView>
@@ -50,7 +59,6 @@ const styles = StyleSheet.create({
   container: {flexDirection: 'row', alignItems: 'center'},
   line: {
     height: 1,
-    backgroundColor: 'white',
     width: 60,
   },
 });

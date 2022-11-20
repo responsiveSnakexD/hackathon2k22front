@@ -1,4 +1,5 @@
 import {DefaultTheme} from 'react-native-paper';
+
 import commonTheme from './common';
 import {Theme} from './type';
 
@@ -10,9 +11,13 @@ export const darkTheme: Theme = {
     onPrimary: '#E7E1DA',
     secondary: '#5AB1BB',
     onSecondary: '#E7E1DA',
+    path: '#D66A68',
+    pathBg: '#17132A',
+    onPath: '#F9DBBD',
     background: '#17132A',
-    onBackground: '#D7CDC1',
+    onBackground: '#FFE066',
     accent: '#00798C',
     onAccent: '#E7E1DA',
+    error: '#A11A1A',
   },
 };

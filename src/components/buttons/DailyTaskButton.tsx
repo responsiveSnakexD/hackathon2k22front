@@ -1,14 +1,7 @@
-import React from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  TouchableNativeFeedback,
-} from 'react-native';
+import React, {ReactElement} from 'react';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
-import {path} from 'xstate/lib/utils';
 
 type DailyTaskButtonTypes = {
   title: number;
@@ -20,7 +13,7 @@ export const DailyTaskButton = ({
   title,
   size = 125,
   onPress,
-}: DailyTaskButtonTypes) => {
+}: DailyTaskButtonTypes): ReactElement => {
   const {colors} = useAppTheme();
   return (
     <TouchableOpacity
@@ -30,13 +23,12 @@ export const DailyTaskButton = ({
           borderRadius: size / 2,
           width: size,
           height: size / 2,
-          borderColor: colors.onBackground,
+          borderColor: colors.path,
+          backgroundColor: colors.pathBg,
         },
         styles.borders,
       ]}>
-      <Text style={[{color: colors.onBackground, fontSize: size / 3}]}>
-        {title}
-      </Text>
+      <Text style={[{color: colors.path, fontSize: size / 3}]}>{title}</Text>
     </TouchableOpacity>
   );
 };
