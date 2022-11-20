@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import ImagePicker from '@app/components/ImagePicker';
 import {Modal} from '@app/components/Modal';
 import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
 import {TextIconButton} from '@app/components/buttons/TextIconButton';
@@ -66,7 +67,7 @@ const MainTask: React.FC = () => {
             <TextIconButton
               icon={<Entypo name={goalModal.icon} size={24} color="white" />}
               text={goalModal.name}
-              version={'secondary'}
+              version="secondary"
               style={{
                 padding: 10,
                 width: 60,
@@ -92,13 +93,16 @@ const MainTask: React.FC = () => {
               <TextIconButton
                 icon={<Entypo name={item.icon} size={24} color="white" />}
                 text={item.name}
-                version={'secondary'}
+                version="secondary"
                 style={styles.buttons}
               />
             }
             content={<Text style={styles.text}>{item.text}</Text>}
           />
         ))}
+      </View>
+      <View style={styles.pickerContainer}>
+        <ImagePicker />
       </View>
     </View>
   );
@@ -110,6 +114,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  pickerContainer: {
+    flex: 1,
   },
   header: {
     marginTop: 20,

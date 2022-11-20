@@ -57,7 +57,7 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
       <View style={styles.goal}>
         <View style={styles.header}>
           <Title style={[{color: colors.onBackground, fontSize: 26}]}>
-            {title}
+            {taskData.title}
           </Title>
           <BackHomeButton />
         </View>
@@ -68,7 +68,7 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
             <TextIconButton
               icon={<Entypo name={goalModal.icon} size={24} color="white" />}
               text={goalModal.name}
-              version={'secondary'}
+              version="secondary"
               style={{
                 padding: 10,
                 width: 60,
@@ -78,10 +78,9 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
               }}
             />
           }
-          content={<Text style={styles.text}>{goalModal.text}</Text>}
+          content={<Text style={styles.text}>{taskData.goal}</Text>}
         />
       </View>
-      <Giraffe width="200" height="400" />
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
@@ -90,13 +89,16 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
               <TextIconButton
                 icon={<Entypo name={item.icon} size={24} color="white" />}
                 text={item.name}
-                version={'secondary'}
+                version="secondary"
                 style={styles.buttons}
               />
             }
-            content={<Text style={styles.text}>{item.text}</Text>}
+            content={<Text style={styles.text}>{taskData[item.name]}</Text>}
           />
         ))}
+      </View>
+      <View style={styles.pickerContainer}>
+        <ImagePicker />
       </View>
     </View>
   );
@@ -135,6 +137,9 @@ const styles = StyleSheet.create({
     width: 150,
     height: 80,
     borderRadius: 50,
+  },
+  pickerContainer: {
+    flex: 1,
   },
 });
 
