@@ -11,6 +11,7 @@ export const darkTheme: Theme = {
     onPrimary: '#E7E1DA',
     secondary: '#5AB1BB',
     onSecondary: '#E7E1DA',
+    path: '#F25F5C',
     background: '#17132A',
     onBackground: '#FFE066',
     accent: '#00798C',

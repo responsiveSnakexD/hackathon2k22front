@@ -24,13 +24,11 @@ export const DailyTaskButton = ({
           borderRadius: size / 2,
           width: size,
           height: size / 2,
-          borderColor: colors.onBackground,
+          borderColor: colors.path,
         },
         styles.borders,
       ]}>
-      <Text style={[{color: colors.onBackground, fontSize: size / 3}]}>
-        {title}
-      </Text>
+      <Text style={[{color: colors.path, fontSize: size / 3}]}>{title}</Text>
     </TouchableOpacity>
   );
 };

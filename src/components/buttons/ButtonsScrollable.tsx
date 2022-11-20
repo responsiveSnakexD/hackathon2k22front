@@ -43,7 +43,7 @@ export const ButtonsScrollable = () => {
             <View
               style={{
                 height: 1,
-                backgroundColor: colors.onBackground,
+                backgroundColor: colors.path,
                 width: 60,
               }}
             />
