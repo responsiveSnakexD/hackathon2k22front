@@ -51,7 +51,8 @@ const MainTask: React.FC = () => {
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.goal}>
         <View style={styles.header}>
-          <Title style={[{color: colors.onBackground, fontSize: 26}]}>
+          <Title
+            style={[{color: colors.onBackground, fontSize: 26, marginTop: 10}]}>
             {title}
           </Title>
           <BackHomeButton />
