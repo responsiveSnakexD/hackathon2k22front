@@ -37,7 +37,7 @@ const Login: React.FC<PageProps> = ({navigation}) => {
       navigation.navigate('index');
     } else {
       auth.send('LOGOUT');
-      setError('złe dane!');
+      setError('incorrect data');
     }
   };
 
