@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import ImagePicker from '@app/components/ImagePicker';
 import {Modal} from '@app/components/Modal';
 import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
 import {TextIconButton} from '@app/components/buttons/TextIconButton';
@@ -93,6 +94,9 @@ const MainTask: React.FC = () => {
           />
         ))}
       </View>
+      <View style={styles.pickerContainer}>
+        <ImagePicker />
+      </View>
     </View>
   );
 };
@@ -103,6 +107,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  pickerContainer: {
+    flex: 1,
   },
   header: {
     marginTop: 20,

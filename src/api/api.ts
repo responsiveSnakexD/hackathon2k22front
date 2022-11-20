@@ -41,18 +41,11 @@ export default class API {
     return API.request({url, method});
   }
 
-  static async getTask(
-    id: string,
-    camapignId: number,
-  ): Promise<AxiosResponse<TaskData>> {
-    const token = await API.getToken();
-    const url = `task/${id}/${camapignId}`;
+  static async getTask(id: string): Promise<AxiosResponse<TaskData>> {
+    const url = `task/${id}`;
     const method = 'POST';
-    const headers = {
-      Authorization: token,
-    };
 
-    return API.request({url, method, headers});
+    return API.request({url, method});
   }
 
   static async getAllTasks(campaignId: number): Promise<Array<TaskPreview>> {

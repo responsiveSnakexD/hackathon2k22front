@@ -32,55 +32,74 @@ const documentationModal: ModalItem = {
 };
 
 const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
+  console.log('Siema');
   const {colors} = useAppTheme();
   const [taskData, setTaskData] = useState<TaskData | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
-        const {data} = await API.getTask(
-          route.params.query.id,
-          route.params.query.campaignId,
-        );
+        const {data} = await API.getTask(route.params.query.id);
         setTaskData(data);
       } catch {
-        navigation.navigate('login/index');
+        console.log('error');
+        // navigation.navigate('login/index');
       }
     };
     fetchData();
-  }, [navigation, route.params.query.campaignId, route.params.query.id]);
+  }, [navigation, route.params.query.id]);
 
+  if (!taskData) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
-      {taskData ? (
-        <>
-          <View style={{}}>
-            <BackHomeButton />
-            <Title style={[{color: colors.onBackground}]}>
-              {taskData.title}
-            </Title>
-          </View>
-          <View style={styles.buttonList}>
-            {[descriptionModal, goalModal, documentationModal].map((item) => (
-              <Modal
-                key={item.icon}
-                button={
-                  <TextIconButton
-                    icon={<Entypo name={item.icon} size={24} color="white" />}
-                    text={item.name}
-                  />
-                }
-                content={<Text>{taskData[item.name]}</Text>}
+      <View style={styles.goal}>
+        <View style={styles.header}>
+          <Title style={[{color: colors.onBackground, fontSize: 26}]}>
+            {taskData.title}
+          </Title>
+          <BackHomeButton />
+        </View>
+
+        <Modal
+          key={goalModal.icon}
+          button={
+            <TextIconButton
+              icon={<Entypo name={goalModal.icon} size={24} color="white" />}
+              text={goalModal.name}
+              version="secondary"
+              style={{
+                padding: 10,
+                width: 60,
+                height: 60,
+                borderRadius: 50,
+                alignSelf: 'center',
+              }}
+            />
+          }
+          content={<Text style={styles.text}>{taskData.goal}</Text>}
+        />
+      </View>
+      <View style={styles.buttonList}>
+        {[descriptionModal, documentationModal].map((item) => (
+          <Modal
+            key={item.icon}
+            button={
+              <TextIconButton
+                icon={<Entypo name={item.icon} size={24} color="white" />}
+                text={item.name}
+                version="secondary"
+                style={styles.buttons}
               />
-            ))}
-          </View>
-          <View style={styles.pickerContainer}>
-            <ImagePicker />
-          </View>
-        </>
-      ) : (
-        <Text>loading...</Text>
-      )}
+            }
+            content={<Text style={styles.text}>{taskData[item.name]}</Text>}
+          />
+        ))}
+      </View>
+      <View style={styles.pickerContainer}>
+        <ImagePicker />
+      </View>
     </View>
   );
 };
@@ -88,27 +107,39 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
-  headerContainer: {
-    flex: 1,
+  header: {
+    marginTop: 20,
+    width: 300,
     flexDirection: 'row',
-    alignItems: 'center',
+    flex: 1,
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+  },
+  goal: {
+    flex: 0.9,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  text: {
+    fontSize: 18,
+  },
+  buttonList: {
+    flexDirection: 'row',
     justifyContent: 'space-around',
+    width: '100%',
+  },
+  buttons: {
+    padding: 10,
+    width: 150,
+    height: 80,
+    borderRadius: 50,
   },
   pickerContainer: {
     flex: 1,
-  },
-  text: {
-    fontSize: 14,
-  },
-  buttonList: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    width: '100%',
   },
 });
 

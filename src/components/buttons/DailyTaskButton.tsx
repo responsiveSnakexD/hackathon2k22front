@@ -27,7 +27,7 @@ export const DailyTaskButton = ({
           width: size,
           height: size / 2,
           borderColor: isMain ? colors.mainBorder : colors.path,
-          backgroundColor: isMain ? colors.mainBg : colors.path,
+          backgroundColor: isMain ? colors.primary : colors.primary,
         },
         styles.borders,
       ]}>
