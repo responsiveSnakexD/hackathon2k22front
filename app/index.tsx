@@ -1,8 +1,9 @@
 import React from 'react';
-import {StatusBar, Platform, StyleSheet, View} from 'react-native';
+import {StatusBar, Platform, StyleSheet} from 'react-native';
 
 import {Header} from '@app/components/Header';
 import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
+import {Link} from 'expo-router';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -20,7 +21,6 @@ const App: React.FC = () => {
       <Giraffe width="100" height="100" />
 
       <ButtonsScrollable />
-
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );
