@@ -1,10 +1,9 @@
 import React from 'react';
 import {StatusBar, Platform, StyleSheet} from 'react-native';
 
-import {Header} from '@app/components/Header';
+import {Header} from '@app/components/Header/Header';
 import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
 import {PageProps} from '@app/types/pageprops';
-import {Link} from 'expo-router';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
