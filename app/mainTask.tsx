@@ -8,7 +8,7 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
-import Giraffe from '../assets/whale.svg';
+import Whale from '../assets/whale.svg';
 
 const title = 'Develop curiosity';
 const description =
@@ -76,7 +76,7 @@ const MainTask: React.FC = () => {
           content={<Text style={styles.text}>{goalModal.text}</Text>}
         />
       </View>
-      <Giraffe width="200" height="400" />
+      <Whale width="200" height="400" />
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
