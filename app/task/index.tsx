@@ -41,7 +41,6 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
-        throw new Error();
         const {data} = await API.getTask(route.params.query.id);
         setTaskData(data);
       } catch {
