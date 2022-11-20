@@ -1,21 +1,22 @@
 import React from 'react';
 import {StatusBar, Platform, StyleSheet} from 'react-native';
 
-import {Header} from '@app/components/Header';
+import {Header} from '@app/components/Header/Header';
 import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
-import {Link} from 'expo-router';
+import {PageProps} from '@app/types/pageprops';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {useAppTheme} from '../src/hooks';
 
-const App: React.FC = () => {
+const App: React.FC<PageProps> = ({navigation: {navigate}}) => {
   const {colors} = useAppTheme();
 
   return (
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
-      <Header exp={125} />
+      <Header exp={125} navigate={navigate} />
+
       <ButtonsScrollable />
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
