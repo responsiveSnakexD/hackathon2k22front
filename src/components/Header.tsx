@@ -39,16 +39,18 @@ export const Header = ({exp}: HeaderTypes) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flex: 0.5,
+    flex: 0.3,
     flexDirection: 'row',
     alignItems: 'baseline',
     justifyContent: 'space-around',
+    paddingLeft: 10,
   },
   innerShelf: {
+    paddingRight: 10,
     display: 'flex',
     flex: 0.5,
     flexDirection: 'column',
-    alignItems: 'baseline',
-    justifyContent: 'center',
+    alignItems: 'flex-end',
+    justifyContent: 'space-evenly',
   },
 });

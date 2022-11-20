@@ -12,6 +12,7 @@ export const darkTheme: Theme = {
     secondary: '#5AB1BB',
     onSecondary: '#E7E1DA',
     path: '#D66A68',
+    pathBg: '#17132A',
     onPath: '#F9DBBD',
     background: '#17132A',
     onBackground: '#FFE066',

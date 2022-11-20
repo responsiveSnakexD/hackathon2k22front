@@ -1,8 +1,10 @@
+import React from 'react';
+import {View, Modal as NativeModal, StyleSheet, Pressable} from 'react-native';
+
 import globalStyles from '@app/globalStyles';
 import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
-import React from 'react';
-import {View, Modal as NativeModal, StyleSheet, Pressable} from 'react-native';
+
 import {ModalProps} from './type';
 
 export const Modal: React.FC<ModalProps> = ({
@@ -46,8 +48,6 @@ export const Modal: React.FC<ModalProps> = ({
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   fullScreen: {
     width: '90%',
