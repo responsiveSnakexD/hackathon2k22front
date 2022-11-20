@@ -1,6 +1,8 @@
 import React, {FC, ReactNode, useEffect} from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
 import {useColorScheme, Appearance} from 'react-native';
+
+import {Provider as PaperProvider} from 'react-native-paper';
+
 import {darkTheme, lightTheme} from '../theme';
 
 const ThemeProvider: FC<{children: ReactNode}> = ({children}) => {
