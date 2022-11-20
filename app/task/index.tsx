@@ -11,6 +11,8 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
+import Fish from '../../assets/nemo.svg';
+import Whale from '../../assets/whale.svg';
 import {MainTaskPageProps} from './types';
 
 type ModalItem = {
@@ -39,11 +41,12 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
+        throw new Error();
         const {data} = await API.getTask(route.params.query.id);
         setTaskData(data);
       } catch {
         console.log('error');
-        // navigation.navigate('login/index');
+        navigation.navigate('login/index');
       }
     };
     fetchData();
@@ -56,7 +59,8 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.goal}>
         <View style={styles.header}>
-          <Title style={[{color: colors.onBackground, fontSize: 26}]}>
+          <Title
+            style={[{color: colors.onBackground, fontSize: 26, marginTop: 10}]}>
             {taskData.title}
           </Title>
           <BackHomeButton />
@@ -68,7 +72,7 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
             <TextIconButton
               icon={<Entypo name={goalModal.icon} size={24} color="white" />}
               text={goalModal.name}
-              version="secondary"
+              version={'secondary'}
               style={{
                 padding: 10,
                 width: 60,
@@ -81,6 +85,11 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
           content={<Text style={styles.text}>{taskData.goal}</Text>}
         />
       </View>
+      {true ? (
+        <Fish width="250" height="400" />
+      ) : (
+        <Whale width="300" height="400" />
+      )}
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
@@ -89,7 +98,7 @@ const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
               <TextIconButton
                 icon={<Entypo name={item.icon} size={24} color="white" />}
                 text={item.name}
-                version="secondary"
+                version={'secondary'}
                 style={styles.buttons}
               />
             }

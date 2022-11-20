@@ -18,7 +18,6 @@ import Birds from '../../assets/Birds.svg';
 import {LoginFieldValues} from './types';
 
 const Login: React.FC<PageProps> = ({navigation}) => {
-  const isKeyboardVisible = useKeyboardState();
   const {auth} = useMachines();
   const {colors} = useAppTheme();
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +55,7 @@ const Login: React.FC<PageProps> = ({navigation}) => {
   return (
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
-      {isKeyboardVisible ? (
+      {false ? (
         <>
           <View style={[styles.formContainer, {marginTop: 15}]}>
             <ControlledInput label="email" control={control} name="email" />
@@ -85,9 +84,9 @@ const Login: React.FC<PageProps> = ({navigation}) => {
         </>
       ) : (
         <>
-          <View style={styles.birds}>
+          {/* <View style={styles.birds}>
             <Birds width="300" height="300" />
-          </View>
+          </View> */}
           <View style={styles.formContainer}>
             <ControlledInput label="email" control={control} name="email" />
             <ControlledInput
