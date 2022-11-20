@@ -7,6 +7,7 @@ import {useAppTheme} from '@app/hooks';
 import {TextIconButtonProps} from './type';
 
 export const TextIconButton: React.FC<TextIconButtonProps> = ({
+  style: additionalStyles,
   text,
   icon,
   version = 'primary',
@@ -25,7 +26,13 @@ export const TextIconButton: React.FC<TextIconButtonProps> = ({
       ? colors.onSecondary
       : colors.onAccent;
   return (
-    <View style={[globalStyles.button, styles.container, {backgroundColor}]}>
+    <View
+      style={[
+        globalStyles.button,
+        styles.container,
+        {backgroundColor},
+        additionalStyles,
+      ]}>
       {text && <Text style={{color: textColor}}>{text}</Text>}
       {icon}
     </View>
