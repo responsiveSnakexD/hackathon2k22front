@@ -43,7 +43,7 @@ export const ButtonsScrollable: React.FC = () => {
             <View
               style={{
                 height: 1,
-                backgroundColor: 'white',
+                backgroundColor: colors.onPath,
                 width: 60,
               }}
             />

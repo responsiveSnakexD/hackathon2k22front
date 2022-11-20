@@ -11,6 +11,7 @@ export const lightTheme = {
     secondary: '#F97068',
     onSecondary: '#212738',
     path: '#F25F5C',
+    onPath: '#E7E1DA',
     background: '#FFEAC2',
     onBackground: '#181527',
     accent: '#A09BE7',
