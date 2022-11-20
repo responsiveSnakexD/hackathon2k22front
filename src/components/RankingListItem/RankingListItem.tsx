@@ -1,7 +1,9 @@
-import {useAppTheme} from '@app/hooks';
-import {darken} from 'polished';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+
+import {useAppTheme} from '@app/hooks';
+import {rgba} from 'polished';
+
 import {RankingListItemProps} from './type';
 
 export const RankingListItem: React.FC<RankingListItemProps> = ({
@@ -11,23 +13,36 @@ export const RankingListItem: React.FC<RankingListItemProps> = ({
 }) => {
   const {colors} = useAppTheme();
   const isCurrentUser = name === 'Me'; // TODO: get current user name from context
+
+  const isOtherOdd = position > 3 && position % 2 === 1;
   const isFirst = position === 1;
   const isSecond = position === 2;
   const isThird = position === 3;
-  const isOtherOdd = position > 3 && !isCurrentUser && position % 2 === 1;
+  const {color, backgroundColor} = isFirst
+    ? styles.first
+    : isSecond
+    ? styles.second
+    : isThird
+    ? styles.third
+    : {
+        color: colors.onBackground,
+        backgroundColor: isOtherOdd
+          ? rgba(colors.onBackground, 0.1)
+          : 'transparent',
+      };
+
   return (
-    <View
-      style={[
-        styles.container,
-        isCurrentUser && {backgroundColor: colors.primary},
-        isFirst && {backgroundColor: '#EFC75A'},
-        isSecond && {backgroundColor: '#B5B2B0'},
-        isThird && {backgroundColor: '#925927'},
-        isOtherOdd && {backgroundColor: darken(0.05, colors.background)},
-      ]}>
-      <Text style={styles.text}>{position}</Text>
-      <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text}>{score}</Text>
+    <View style={[styles.container, {backgroundColor}]}>
+      <Text style={[styles.text, {color}]}>{position}</Text>
+      <Text
+        style={[
+          styles.text,
+          {color: isCurrentUser ? colors.secondary : color},
+          isCurrentUser && styles.currentUser,
+        ]}>
+        {name}
+      </Text>
+      <Text style={[styles.text, {color}]}>{score}</Text>
     </View>
   );
 };
@@ -46,6 +61,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   first: {
-    backgroundColor: '#EFC75A',
+    backgroundColor: rgba('#EFC75A', 0.5),
+    color: '#000',
+  },
+  second: {
+    backgroundColor: rgba('#B5B2B0', 0.5),
+    color: '#000',
+  },
+  third: {
+    backgroundColor: rgba('#925927', 0.5),
+    color: '#000',
+  },
+  currentUser: {
+    fontWeight: 'bold',
   },
 });

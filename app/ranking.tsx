@@ -1,9 +1,10 @@
-import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
+import React from 'react';
+import {View, ScrollView, StyleSheet} from 'react-native';
+
 import {RankingListItem} from '@app/components/RankingListItem';
 import {RankingListItemProps} from '@app/components/RankingListItem/type';
+import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
 import {useAppTheme} from '@app/hooks';
-import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {Title} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -163,7 +164,7 @@ const Ranking: React.FC = () => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.header}>
-        <Title>Giraffe Loves Them</Title>
+        <Title style={{color: colors.onBackground}}>Giraffe Loves Them</Title>
         <BackHomeButton />
       </View>
       <View>
