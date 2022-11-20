@@ -1,10 +1,8 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
-import {DailyTaskButton} from '@app/components/buttons/DailyTaskButton';
 import useMachines from '@app/hooks/useMachines';
-import {Task} from '@app/types/Task';
 import {useSelector} from '@xstate/react';
 import {Link} from 'expo-router';
 import {StatusBar} from 'expo-status-bar';
@@ -34,6 +32,9 @@ const App: React.FC = () => {
       <ButtonsScrollable />
       <Link href="/login">Go to login</Link>
       <MainTaskButton />
+      <Link href="/ranking">
+        <Text>Go to ranking</Text>
+      </Link>
       {logged ? <Text>logged</Text> : null}
       <StatusBar style="auto" />
     </View>
