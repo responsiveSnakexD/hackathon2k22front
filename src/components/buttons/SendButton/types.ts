@@ -1,5 +1,7 @@
+import {ReactNode} from 'react';
+
 export type SendButtonProps = {
-  children: string;
+  children: ReactNode;
   onPress: () => void | Promise<void>;
   disabled?: boolean;
 };

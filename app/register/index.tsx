@@ -41,7 +41,8 @@ const Register: React.FC<PageProps> = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.formContainer}>
         <ControlledInput label="email" control={control} name="email" />
         <ControlledInput
@@ -52,13 +53,13 @@ const Register: React.FC<PageProps> = ({navigation}) => {
         />
         <ControlledInput
           password
-          label="powtórz hasło"
+          label="repeat password"
           control={control}
           name="repeatPassword"
           validate={(value) => {
             return value === getValues().password
               ? undefined
-              : 'hasła nie są identyczne';
+              : 'passwords are not the same';
           }}
         />
         {error && <Text style={{color: colors.error}}>{error}</Text>}
@@ -66,7 +67,13 @@ const Register: React.FC<PageProps> = ({navigation}) => {
           zarejestruj
         </SendButton>
       </View>
-      <Link href="/login">Zaloguj się!</Link>
+      <View style={[styles.loginContainer, {borderColor: colors.onBackground}]}>
+        <Link href="/login">
+          <Text style={[styles.login, {color: colors.onBackground}]}>
+            Log In
+          </Text>
+        </Link>
+      </View>
     </SafeAreaView>
   );
 };
@@ -76,13 +83,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
+    paddingBottom: 30,
   },
   formContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+  },
+  loginContainer: {
+    borderWidth: 2,
+    borderColor: 'black',
+    padding: 10,
+    borderRadius: 20,
+  },
+  login: {
+    fontSize: 18,
   },
 });
 

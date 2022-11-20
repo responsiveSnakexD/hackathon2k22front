@@ -22,7 +22,7 @@ const ControlledInput = <T extends FieldValues>({
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={[styles.inputLabel, {color: colors.text}]}>
+      <Text style={[styles.inputLabel, {color: colors.onBackground}]}>
         {label.toLocaleUpperCase()}
       </Text>
       <TextInput
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     marginBottom: 5,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 
