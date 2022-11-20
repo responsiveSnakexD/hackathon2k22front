@@ -8,13 +8,6 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
-type MainTaskProps = {
-  title: string;
-  description: string;
-  goal: string;
-  documentation: string;
-};
-
 const title = 'Develop curiosity';
 const description =
   'In many cases, intolerance towards others is caused by the lack of understanding. In your first mission you will be increasing your knowledge about other cultures. Pick yourself 6 cultures different than yours and try to make a comparsion of their lifestyles, traditions and goals.You can do it simply by reading about them, or personnaly experience different culture, by getting to know each other, be it online or in reality.';
