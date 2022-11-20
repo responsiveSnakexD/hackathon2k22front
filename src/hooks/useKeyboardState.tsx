@@ -14,7 +14,13 @@ export const useKeyboardState = (): boolean => {
   }, []);
 
   const [keyboardStatus, setKeyboardStatus] = useState<boolean>(false);
-  const _keyboardDidShow = (): void => setKeyboardStatus(true);
-  const _keyboardDidHide = (): void => setKeyboardStatus(false);
+  const _keyboardDidShow = (): void => {
+    console.log('dupa');
+    setKeyboardStatus(true);
+  };
+  const _keyboardDidHide = (): void => {
+    console.log('dupadupa');
+    setKeyboardStatus(false);
+  };
   return keyboardStatus;
 };

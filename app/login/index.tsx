@@ -41,12 +41,10 @@ const Login: React.FC<PageProps> = ({navigation}) => {
     }
   };
 
-  const isKeybordShown = true;
-
   return (
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
-      {isKeybordShown ? (
+      {isKeyboardVisible ? (
         <>
           <View style={[styles.formContainer, {marginTop: 15}]}>
             <ControlledInput label="email" control={control} name="email" />
