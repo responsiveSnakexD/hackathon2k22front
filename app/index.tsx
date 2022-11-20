@@ -16,8 +16,9 @@ const App: React.FC = () => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <Header exp={125} />
+      <Giraffe width="200" height="200" />
       <ButtonsScrollable />
-      <Giraffe />
+
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );

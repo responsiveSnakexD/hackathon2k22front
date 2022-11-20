@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
