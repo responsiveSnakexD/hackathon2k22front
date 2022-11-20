@@ -51,7 +51,9 @@ const MainTask: React.FC = () => {
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.goal}>
         <View style={styles.header}>
-          <Title style={[{color: colors.onBackground}]}>{title}</Title>
+          <Title style={[{color: colors.onBackground, fontSize: 26}]}>
+            {title}
+          </Title>
           <BackHomeButton />
         </View>
 
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
   },
   buttonList: {
     flexDirection: 'row',
