@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {ScrollView, View} from 'react-native';
 
+import {useAppTheme} from '@app/hooks';
 import {Task} from '@app/types/Task';
 
 import {DailyTaskButton} from './DailyTaskButton';
@@ -29,6 +30,7 @@ const tasks: Task[] = [
 ];
 
 export const ButtonsScrollable = () => {
+  const {colors} = useAppTheme();
   return (
     <ScrollView horizontal>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -41,7 +43,7 @@ export const ButtonsScrollable = () => {
             <View
               style={{
                 height: 1,
-                backgroundColor: 'white',
+                backgroundColor: colors.onBackground,
                 width: 60,
               }}
             />

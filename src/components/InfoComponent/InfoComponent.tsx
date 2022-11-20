@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
+    margin: 0,
   },
   buttonClose: {
     elevation: 0,

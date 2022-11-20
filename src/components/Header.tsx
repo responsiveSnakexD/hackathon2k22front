@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
+import {useAppTheme} from '@app/hooks';
+
 import {InfoComponent} from './InfoComponent/InfoComponent';
 import {RankingButton} from './buttons/RankingButton';
 
@@ -16,23 +18,26 @@ const campaignDescription = `
     Vitae nunc sed velit dignissim sodales ut eu sem. Adipiscing tristique risus nec feugiat. Pellentesque habitant morbi tristique senectus et netus et. Commodo ullamcorper a lacus vestibulum sed arcu non odio.\n\t Gravida neque convallis a cras semper auctor neque vitae. Cum sociis natoque penatibus et. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Nisl vel pretium lectus quam id. Felis bibendum ut tristique et egestas\n\n\t quis ipsum suspendisse. Egestas dui id ornare arcu odio ut sem nulla. Quam vulputate dignissim suspendisse in est ante. Sed arcu non odio euismod lacinia at quis risus. Scelerisque viverra mauris in aliquam sem.`;
 
 export const Header = ({exp}: HeaderTypes) => {
+  const {colors} = useAppTheme();
   return (
-    <View style={styles.container}>
-      <RankingButton exp={exp} />
-      <InfoComponent
-        campaignName="Campaign"
-        campaignDescription={campaignDescription}
-      />
-    </View>
+    <>
+      <View style={styles.container}>
+        <RankingButton exp={exp} onPress={() => console.log('exp')} />
+        <InfoComponent
+          campaignName="Campaign"
+          campaignDescription={campaignDescription}
+        />
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flex: 0.5,
+    flex: 0.3,
     flexDirection: 'row',
     alignItems: 'baseline',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
   },
 });

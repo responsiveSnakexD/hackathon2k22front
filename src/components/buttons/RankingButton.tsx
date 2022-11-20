@@ -5,20 +5,24 @@ import {useAppTheme} from '@app/hooks';
 
 type RankingButtonTypes = {
   exp: number;
+  onPress: () => void;
 };
 
-export const RankingButton = ({exp}: RankingButtonTypes) => {
+export const RankingButton = ({exp, onPress}: RankingButtonTypes) => {
   const {colors} = useAppTheme();
   return (
-    <TouchableOpacity
-      style={[
-        {
-          borderColor: colors.onBackground,
-        },
-        styles.borders,
-      ]}>
-      <Text style={[{color: colors.onBackground}]}>{exp}</Text>
-    </TouchableOpacity>
+    <View style={{flex: 1, alignItems: 'center'}}>
+      <TouchableOpacity
+        onPress={onPress}
+        style={[
+          {
+            borderColor: colors.onBackground,
+          },
+          styles.borders,
+        ]}>
+        <Text style={[{color: colors.onBackground}]}>{exp}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
