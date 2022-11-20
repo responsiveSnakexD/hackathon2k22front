@@ -5,11 +5,14 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Link} from 'expo-router';
 
-export const MainTaskButton: React.FC = () => {
+import {MainTaskButtonProps} from './types';
+
+const MainTaskButton: React.FC<MainTaskButtonProps> = ({id}) => {
   const {colors} = useAppTheme();
+
   return (
     <View style={[styles.container, {backgroundColor: colors.primary}]}>
-      <Link href="/mainTask">
+      <Link href={`/mainTask/${id}`}>
         <Entypo name="address" size={24} color={colors.onPrimary} />
       </Link>
     </View>
@@ -25,3 +28,5 @@ const styles = StyleSheet.create({
     borderRadius: 48,
   },
 });
+
+export default MainTaskButton;

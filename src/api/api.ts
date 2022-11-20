@@ -3,7 +3,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import axiosClient from './client';
-import {AuthResponse} from './types';
+import {
+  AuthResponse,
+  CampaignPreview,
+  TaskData,
+  TaskPreview,
+  TaskPreviewDict,
+} from './types';
 
 export default class API {
   static async login(
@@ -26,6 +32,38 @@ export default class API {
     const data = {email, password};
 
     return API.request({url, method, data});
+  }
+
+  static async getCurrentCampaign(): Promise<AxiosResponse<CampaignPreview>> {
+    const url = 'task/campaign';
+    const method = 'POST';
+
+    return API.request({url, method});
+  }
+
+  static async getTask(id: string): Promise<AxiosResponse<TaskData>> {
+    const url = `task/${id}`;
+    const method = 'POST';
+
+    return API.request({url, method});
+  }
+
+  static async getAllTasks(campaignId: number): Promise<Array<TaskPreview>> {
+    const token = await API.getToken();
+    const url = `task/all/${campaignId}`;
+    const method = 'POST';
+    const headers = {
+      Authorization: token,
+    };
+
+    console.log(url, campaignId);
+    const {data} = (await API.request({
+      url,
+      method,
+      headers,
+    })) as AxiosResponse<TaskPreviewDict>;
+
+    return Object.entries(data).map(([task_id, rest]) => ({task_id, ...rest}));
   }
 
   static async getToken(): Promise<string> {

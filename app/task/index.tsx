@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import API from '@app/api';
+import {TaskData} from '@app/api/types';
 import ImagePicker from '@app/components/ImagePicker';
 import {Modal} from '@app/components/Modal';
 import {BackHomeButton} from '@app/components/buttons/BackHomeButton';
@@ -9,54 +11,53 @@ import {useAppTheme} from '@app/hooks';
 import {Entypo} from '@expo/vector-icons';
 import {Title} from 'react-native-paper';
 
-import Fish from '../assets/nemo.svg';
-import Whale from '../assets/whale.svg';
+import {MainTaskPageProps} from './types';
 
-const title = 'Develop curiosity';
-const description =
-  'In many cases, intolerance towards others is caused by the lack of understanding. In your first mission you will be increasing your knowledge about other cultures. Pick yourself 6 cultures different than yours and try to make a comparsion of their lifestyles, traditions and goals.You can do it simply by reading about them, or personnaly experience different culture, by getting to know each other, be it online or in reality.';
-const goal = `
-Broaden your horizons and increase your ability 
-to understand and accept others. After the task is 
-completed, try to share your knowledge in your neighbourhood.
-`;
-const documentation = `
-Record 6 voice messages about other cultures during this month. 
-Try to see as many positive aspects as you can.
-`;
-const MainTask: React.FC = () => {
+type ModalItem = {
+  name: 'description' | 'goal' | 'documentation';
+  icon: React.ComponentProps<typeof Entypo>['name'];
+};
+
+const descriptionModal: ModalItem = {
+  name: 'description',
+  icon: 'open-book',
+};
+const goalModal: ModalItem = {
+  name: 'goal',
+  icon: 'trophy',
+};
+const documentationModal: ModalItem = {
+  name: 'documentation',
+  icon: 'book',
+};
+
+const MainTask: React.FC<MainTaskPageProps> = ({route, navigation}) => {
+  console.log('Siema');
   const {colors} = useAppTheme();
-  const isMain = true;
+  const [taskData, setTaskData] = useState<TaskData | undefined>(undefined);
 
-  type ModalItem = {
-    name: string;
-    text: string;
-    icon: React.ComponentProps<typeof Entypo>['name'];
-  };
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        const {data} = await API.getTask(route.params.query.id);
+        setTaskData(data);
+      } catch {
+        console.log('error');
+        // navigation.navigate('login/index');
+      }
+    };
+    fetchData();
+  }, [navigation, route.params.query.id]);
 
-  const descriptionModal: ModalItem = {
-    name: 'description',
-    text: description,
-    icon: 'open-book',
-  };
-  const goalModal: ModalItem = {
-    name: 'goal',
-    text: goal,
-    icon: 'trophy',
-  };
-  const documentationModal: ModalItem = {
-    name: 'documentation',
-    text: documentation,
-    icon: 'book',
-  };
-
+  if (!taskData) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.goal}>
         <View style={styles.header}>
-          <Title
-            style={[{color: colors.onBackground, fontSize: 26, marginTop: 10}]}>
-            {title}
+          <Title style={[{color: colors.onBackground, fontSize: 26}]}>
+            {taskData.title}
           </Title>
           <BackHomeButton />
         </View>
@@ -77,14 +78,9 @@ const MainTask: React.FC = () => {
               }}
             />
           }
-          content={<Text style={styles.text}>{goalModal.text}</Text>}
+          content={<Text style={styles.text}>{taskData.goal}</Text>}
         />
       </View>
-      {isMain ? (
-        <Fish width="250" height="400" />
-      ) : (
-        <Whale width="300" height="400" />
-      )}
       <View style={styles.buttonList}>
         {[descriptionModal, documentationModal].map((item) => (
           <Modal
@@ -97,7 +93,7 @@ const MainTask: React.FC = () => {
                 style={styles.buttons}
               />
             }
-            content={<Text style={styles.text}>{item.text}</Text>}
+            content={<Text style={styles.text}>{taskData[item.name]}</Text>}
           />
         ))}
       </View>
@@ -114,9 +110,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  pickerContainer: {
-    flex: 1,
   },
   header: {
     marginTop: 20,
@@ -144,6 +137,9 @@ const styles = StyleSheet.create({
     width: 150,
     height: 80,
     borderRadius: 50,
+  },
+  pickerContainer: {
+    flex: 1,
   },
 });
 
