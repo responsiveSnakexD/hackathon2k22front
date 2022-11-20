@@ -2,28 +2,26 @@ import React, {ReactElement} from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
 import {useAppTheme} from '@app/hooks';
+import {Link} from 'expo-router';
 
-type RankingButtonTypes = {
+type Props = {
   exp: number;
-  onPress: () => void;
+  navigate: (page: string) => void;
 };
 
-export const RankingButton = ({
-  exp,
-  onPress,
-}: RankingButtonTypes): ReactElement => {
+export const RankingButton: React.FC<Props> = ({exp, navigate}) => {
   const {colors} = useAppTheme();
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={onPress}
+        onPress={() => navigate('ranking')}
         style={[
           {
             borderColor: colors.onBackground,
           },
           styles.borders,
         ]}>
-        <Text style={[{color: colors.onBackground}]}>{exp}</Text>
+        <Text style={[{color: colors.onBackground}]}>exp</Text>
       </TouchableOpacity>
     </View>
   );
