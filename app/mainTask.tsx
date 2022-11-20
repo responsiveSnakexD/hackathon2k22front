@@ -63,7 +63,7 @@ const MainTask: React.FC = () => {
             <TextIconButton
               icon={<Entypo name={goalModal.icon} size={24} color="white" />}
               text={goalModal.name}
-              version={'secondary'}
+              version="secondary"
               style={{
                 padding: 10,
                 width: 60,
@@ -85,7 +85,7 @@ const MainTask: React.FC = () => {
               <TextIconButton
                 icon={<Entypo name={item.icon} size={24} color="white" />}
                 text={item.name}
-                version={'secondary'}
+                version="secondary"
                 style={styles.buttons}
               />
             }

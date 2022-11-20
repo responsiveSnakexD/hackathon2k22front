@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 
+import API from '@app/api';
 import ControlledInput from '@app/components/ControlledInput';
 import SendButton from '@app/components/buttons/SendButton';
 import {useAppTheme} from '@app/hooks';
@@ -37,6 +38,17 @@ const Login: React.FC<PageProps> = ({navigation}) => {
       setError('złe dane!');
     }
   };
+
+  useEffect(() => {
+    const checkAuthentication = async (): Promise<void> => {
+      try {
+        API.getToken();
+      } catch {
+        navigation.navigate('index');
+      }
+    };
+    checkAuthentication();
+  }, [navigation]);
 
   return (
     <SafeAreaView

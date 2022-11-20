@@ -32,7 +32,7 @@ const Register: React.FC<PageProps> = ({navigation}) => {
       const authenticated = await register(email, password);
       if (authenticated) {
         auth.send('LOGGED');
-        navigation.navigate('/');
+        navigation.navigate('index');
       } else {
         auth.send('LOGOUT');
         setError('złe dane!');
