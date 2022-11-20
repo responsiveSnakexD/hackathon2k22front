@@ -13,23 +13,29 @@ export const RankingListItem: React.FC<RankingListItemProps> = ({
 }) => {
   const {colors} = useAppTheme();
   const isCurrentUser = name === 'Me'; // TODO: get current user name from context
+  let backgroundColor: string;
+  let color: string = colors.onBackground;
 
-  const isOtherOdd = position > 3 && position % 2 === 1;
-  const isFirst = position === 1;
-  const isSecond = position === 2;
-  const isThird = position === 3;
-  const {color, backgroundColor} = isFirst
-    ? styles.first
-    : isSecond
-    ? styles.second
-    : isThird
-    ? styles.third
-    : {
-        color: colors.onBackground,
-        backgroundColor: isOtherOdd
-          ? rgba(colors.onBackground, 0.1)
-          : 'transparent',
-      };
+  switch (position) {
+    case 1:
+      backgroundColor = styles.first.backgroundColor;
+      color = styles.first.color;
+      break;
+    case 2:
+      backgroundColor = styles.second.backgroundColor;
+      color = styles.second.color;
+      break;
+    case 3:
+      backgroundColor = styles.third.backgroundColor;
+      color = styles.third.color;
+      break;
+    default:
+      if (position % 2 === 0) {
+        backgroundColor = rgba(colors.primary, 0.1);
+      } else {
+        backgroundColor = 'transparent';
+      }
+  }
 
   return (
     <View style={[styles.container, {backgroundColor}]}>

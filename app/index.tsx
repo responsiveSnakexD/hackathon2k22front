@@ -21,7 +21,7 @@ const App: React.FC = () => {
       <Link href="/ranking">
         <Text>Go to ranking</Text>
       </Link>
-      <Giraffe />
+      {/* <Giraffe /> */}
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );

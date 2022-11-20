@@ -168,12 +168,12 @@ const Ranking: React.FC = () => {
         <BackHomeButton />
       </View>
       <View>
-        {firstThree.map((person) => (
+        {firstThree.map(({name, score, position}) => (
           <RankingListItem
-            key={person.name}
-            name={person.name}
-            score={person.score}
-            position={person.position}
+            key={name}
+            name={name}
+            score={score}
+            position={position}
           />
         ))}
       </View>
