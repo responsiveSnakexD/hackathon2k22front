@@ -6,7 +6,6 @@ import {ButtonsScrollable} from '@app/components/buttons/ButtonsScrollable';
 import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import Giraffe from '../assets/giraffe.svg';
 import {useAppTheme} from '../src/hooks';
 
 const App: React.FC = () => {
@@ -16,7 +15,7 @@ const App: React.FC = () => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <Header exp={125} />
-      <Giraffe width="200" height="200" />
+
       <ButtonsScrollable />
 
       <ExpoStatusBar style="auto" />
