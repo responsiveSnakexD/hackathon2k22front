@@ -17,8 +17,6 @@ const App: React.FC<PageProps> = ({navigation: {navigate}}) => {
       style={[styles.container, {backgroundColor: colors.background}]}>
       <Header exp={125} navigate={navigate} />
 
-      <Giraffe width="100" height="100" />
-
       <ButtonsScrollable />
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
